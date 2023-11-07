@@ -1,0 +1,20 @@
+<div class="w-full h-screen flex flex-col items-center justify-items-center m-0 p-0">
+    <div class="w-full h-full overflow-hidden relative">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === activeSlide"
+            [style.backgroundImage]="slide.backgroundImage" [ngClass]="{'grayscale': i===0}">
+            <app-nav-bar-logo [pageIndex]="i"></app-nav-bar-logo>
+            <div class="text-center p-12">
+                <app-landing-page *ngIf="i===0" [slide]="slide"></app-landing-page>
+                <app-section-one *ngIf="i===1" [slide]="slide"></app-section-one>
+            </div>
+        </div>
+
+        <button [@buttonClick]="buttonState" appFadeInOut class="next-button" (click)="nextSlide()">
+            <svg class=" h-5 text-gray-700 animate-bounce" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 8">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1" />
+            </svg>
+        </button>
+    </div>
+</div>
