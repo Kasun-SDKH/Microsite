@@ -2,13 +2,13 @@
     Discover more
 </div>
 <div class="text-center bottom">
-    <h1 class="text-6xl mb-4 text-white">{{ slide.title }}</h1>
+    <h1 class="md:text-6xl text-2xl mb-4 text-white">{{ slide.title }}</h1>
     <p class="description">{{ slide.description }}</p>
 </div>
 <div class="flex flex-wrap justify-center relative items-center" *ngIf="slide.cards">
-    <div class="absolute left-64 top-1/2 transform -translate-y-1/2">
+    <div class="z-50 absolute left-0 md:left-[15%] top-1/2 transform -translate-y-1/2">
 
-        <svg [@bounce]="prevButtonState" [@slideInOut] (click)="prevSlide()" xmlns="http://www.w3.org/2000/svg"
+        <svg [@bounce]="prevButtonState" (click)="prevSlide()" xmlns="http://www.w3.org/2000/svg"
             class="h-20 w-20 cursor-pointer stroke-2 text-gray-500 hover:text-white" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -20,9 +20,9 @@
         <h2 class="text-lg font-bold mb-4">{{ card.title }}</h2>
         <p class="font-xs">{{ card.text }}</p>
     </div>
-    <div class="absolute right-64 top-1/2 transform -translate-y-1/2">
+    <div class="absolute right-0 md:right-[15%] top-1/2 transform -translate-y-1/2">
 
-        <svg [@bounce]="nextButtonState" [@slideInOut] (click)="nextSlide()" xmlns="http://www.w3.org/2000/svg"
+        <svg [@bounce]="nextButtonState" (click)="nextSlide()" xmlns="http://www.w3.org/2000/svg"
             class="h-20 w-20 text-black cursor-pointer stroke-2 text-gray-500 hover:text-white" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

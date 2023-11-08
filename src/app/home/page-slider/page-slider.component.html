@@ -1,8 +1,12 @@
 <div class="w-full h-screen flex flex-col items-center justify-items-center m-0 p-0">
     <div class="w-full h-full overflow-hidden relative">
-        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === activeSlide"
-            [style.backgroundImage]="slide.backgroundImage" [ngClass]="{'grayscale': i===0}">
-            <app-nav-bar-logo [pageIndex]="i"></app-nav-bar-logo>
+        <div class="slide {{ i === 1 && 'overflow-y-auto h-screen' }}" *ngFor="let slide of slides; let i = index"
+            [class.active]="i === activeSlide" [style.backgroundImage]="slide.backgroundImage"
+            [ngClass]="{'grayscale': i===0}">
+            <div class="fixed">
+                <app-nav-bar-logo [pageIndex]="i"></app-nav-bar-logo>
+            </div>
+
             <div class="text-center p-12">
                 <app-landing-page *ngIf="i===0" [slide]="slide"></app-landing-page>
                 <app-section-one *ngIf="i===1" [slide]="slide"></app-section-one>
